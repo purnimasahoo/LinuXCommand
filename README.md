@@ -117,4 +117,102 @@ Network File System (NFS) and File Transfer Protocol (FTP) are both protocols us
 
 In summary, NFS is suited for seamless file access and sharing within a network, making it appear as though remote files are local. FTP, on the other hand, is specialized for transferring files between systems, particularly over the internet. Each protocol has its strengths and is chosen based on the specific requirements of the task at hand.
 
+`nslookup` is a command-line tool used to query Domain Name System (DNS) servers to obtain information about domain names and IP addresses. It helps diagnose DNS-related issues by providing details such as the IP address associated with a domain name, the domain name associated with an IP address, and more. Here's how `nslookup` works and its key features:
+
+### How `nslookup` Works
+
+1. **Initiate Query**: When you run the `nslookup` command with a domain name or IP address, it sends a query to the DNS server configured on your machine or the one specified in the command.
+  
+2. **DNS Resolution**:
+   - If you query a domain name, `nslookup` sends a DNS query to resolve it to its corresponding IP address.
+   - If you query an IP address, `nslookup` performs a reverse DNS lookup to find the associated domain name.
+   
+3. **DNS Server Response**:
+   - The DNS server processes the query by searching its database for the requested information.
+   - If the DNS server does not have the answer, it may forward the query to other DNS servers until the information is found or the query times out.
+   
+4. **Display Results**: Once the DNS server returns the information, `nslookup` displays the results on the command line, showing details like the resolved IP address, canonical names, and authoritative DNS servers for the queried domain.
+
+### Using `nslookup`
+
+`nslookup` can be used in interactive mode or non-interactive mode:
+
+- **Non-Interactive Mode**: Directly query a domain or IP address from the command line.
+  ```sh
+  nslookup example.com
+  nslookup 192.168.1.1
+  ```
+
+- **Interactive Mode**: Enter the interactive mode by typing `nslookup` without any arguments, then enter multiple queries.
+  ```sh
+  nslookup
+  > example.com
+  > 192.168.1.1
+  ```
+
+### Common `nslookup` Commands
+
+1. **Query Specific DNS Server**:
+   ```sh
+   nslookup example.com 8.8.8.8
+   ```
+   This queries Google's public DNS server (8.8.8.8) for the domain `example.com`.
+
+2. **Find Mail Servers (MX Records)**:
+   ```sh
+   nslookup -query=mx example.com
+   ```
+   This retrieves the mail exchange (MX) records for `example.com`.
+
+3. **Find Name Servers (NS Records)**:
+   ```sh
+   nslookup -query=ns example.com
+   ```
+   This retrieves the name server (NS) records for `example.com`.
+
+4. **Reverse DNS Lookup**:
+   ```sh
+   nslookup 192.168.1.1
+   ```
+   This retrieves the domain name associated with the IP address `192.168.1.1`.
+
+5. **Change Default DNS Server**:
+   ```sh
+   nslookup
+   > server 8.8.8.8
+   > example.com
+   ```
+   This changes the DNS server to Google's public DNS server (8.8.8.8) and queries `example.com`.
+
+### Example Output
+
+```sh
+nslookup example.com
+```
+
+Output:
+```
+Server:   dns.google
+Address:  8.8.8.8
+
+Non-authoritative answer:
+Name:    example.com
+Address: 93.184.216.34
+```
+
+### Key Features
+
+- **Simple DNS Querying**: Quickly look up DNS information for domain names and IP addresses.
+- **Support for Various Record Types**: Query different types of DNS records, such as A, MX, NS, CNAME, PTR, and more.
+- **Interactive and Non-Interactive Modes**: Flexibility to perform multiple queries in interactive mode or single queries in non-interactive mode.
+- **Debugging and Diagnostic Tool**: Useful for diagnosing DNS-related issues by providing detailed information about DNS resolution.
+
+### Practical Uses
+
+- **Troubleshooting**: Diagnose connectivity issues, verify DNS records, and ensure correct DNS configuration.
+- **Verification**: Check if DNS changes have propagated, confirm the IP address of a domain, or find the mail servers for a domain.
+- **Network Administration**: Assist in network configuration and maintenance by providing critical DNS information.
+
+In summary, `nslookup` is a versatile and powerful tool for querying DNS information, making it invaluable for network administrators, developers, and anyone needing to troubleshoot or verify DNS configurations.
+
 
