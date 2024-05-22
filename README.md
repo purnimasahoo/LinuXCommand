@@ -293,3 +293,14 @@ username ALL=(ALL) NOPASSWD: /usr/bin/specific_command
 
 In summary, `sudo` is a powerful tool for managing user privileges on Unix and Linux systems. It enhances security by allowing controlled access to elevated privileges, providing detailed logging, and supporting flexible configurations to meet various administrative needs.
 
+
+# The Linux boot process involves several stages, each critical for bringing the system from a powered-off state to a fully functional operating system:
+
+BIOS/UEFI Initialization: Hardware check and initial setup.
+Boot Loader Stage: Load the kernel.
+Kernel Initialization: Hardware and system setup.
+init/Systemd Initialization: Start user-space initialization.
+Runlevel/Target Initialization: Start appropriate services.
+Starting Services: Initiate required system services.
+User Login: Provide login prompt for user access.
+
