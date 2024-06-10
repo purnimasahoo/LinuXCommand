@@ -304,3 +304,207 @@ Runlevel/Target Initialization: Start appropriate services.
 Starting Services: Initiate required system services.
 User Login: Provide login prompt for user access.
 
+# SRE-Interview
+
+1. Can you provide examples of general Linux troubleshooting techniques?
+
+Ans. 1. tail:
+# Continuously monitor the syslog
+tail -f /var/log/syslog
+# View the last 50 lines of the syslog
+tail -n 50 /var/log/syslog
+# Monitor the Apache error log
+tail -f /var/log/apache2/error.log
+
+# Monitor the Nginx access log
+tail -f /var/log/nginx/access.log
+
+2. # View all kernel messages
+dmesg | less
+
+# Search for specific hardware-related messages (e.g., USB)
+dmesg | grep -i usb
+
+# View messages related to a specific driver (e.g., network)
+dmesg | grep -i network
+
+# View boot messages
+dmesg | less
+
+# A list of processes and their resource usage, including CPU, memory, and more.
+
+1. Identifying Resource-Intensive Processes:
+
+# Run top and sort by CPU usage
+top
+
+# Press 'M' to sort by memory usage
+
+# View load averages at the top of the display
+top
+
+# Kill a process with PID 1234
+top
+# Press 'k', then enter '1234' and hit Enter
+
+# Enhanced version of top
+htop
+
+# Run htop
+htop
+# Toggle tree view
+htop
+# Press 'F5' for tree view
+
+# Check free and used memory with free -h
+# Display memory usage in human-readable format
+free -h
+
+# Run free periodically
+watch -n 5 free -h
+
+# View buffer/cache memory usage
+free -h
+
+# 3. Check Disk Usage and I/O
+
+# Check disk space usage
+df -h
+
+# Check directory disk usage
+du -sh /path/to/directory
+
+# Monitor disk I/O
+iostat -xz 1 5
+
+# Monitor I/O usage by processes
+iotop
+
+# 4. Network Diagnostics
+
+# Test network connectivity
+ping google.com
+
+# Trace the route to a network host
+traceroute google.com
+
+# Display network connections
+netstat -tuln
+
+# Display network connections using ss
+ss -tuln
+
+# Display network interfaces
+ifconfig -a
+
+# Display network interfaces and IP addresses
+ip addr show
+
+# Capture network packets
+tcpdump -i eth0
+
+# 5. Process Management
+
+# List running processes
+ps aux
+
+# Display a tree of processes
+pstree
+
+# Kill a process by PID
+kill 1234
+
+# Kill processes by name
+pkill firefox
+
+# 6 Service Management
+
+# Check the status of a service
+systemctl status apache2
+
+# Start a service
+systemctl start apache2
+
+# Restart a service
+systemctl restart apache2
+
+# Stop a service
+systemctl stop apache2
+
+# Enable a service to start at boot
+systemctl enable apache2
+
+# Disable a service
+systemctl disable apache2
+
+# 7. File and Directory Management
+# List files in a directory
+ls -l /path/to/directory
+
+# View the contents of a file
+cat /path/to/file
+
+# Search for a string in a file
+grep 'search_string' /path/to/file
+
+# Find files and directories
+find /path/to/search -name 'filename'
+
+# Change file permissions
+chmod 755 /path/to/file
+
+# Change file ownership
+chown user:group /path/to/file
+
+8. # User and Group Management
+
+# Add a new user
+sudo useradd newuser
+
+# Modify a user
+sudo usermod -aG sudo newuser
+
+# Delete a user
+sudo userdel -r newuser
+
+# Add a new group
+sudo groupadd newgroup
+
+# List user groups
+groups username
+
+# 9. Package Management
+
+# Update package list and upgrade all packages (Debian/Ubuntu)
+sudo apt update && sudo apt upgrade
+
+# Install a package (Debian/Ubuntu)
+sudo apt install package_name
+
+# Update package list and upgrade all packages (RHEL/CentOS)
+sudo yum update
+
+# Install a package (RHEL/CentOS)
+sudo yum install package_name
+
+# Install a package using rpm
+sudo rpm -ivh package.rpm
+
+# 10. Configuration Files and Editors
+
+# Open a file in vim
+vim /path/to/file
+
+# Open a file in nano
+nano /path/to/file
+
+# View a file with less
+less /path/to/file
+
+# Display the contents of a file with cat
+cat /path/to/file
+
+
+
+
+
