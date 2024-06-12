@@ -39,6 +39,45 @@ The following are some popular Linux commands:
 
 🔹ping - Test network connectivity between hosts
 
+# So can you provide examples of Linux troubleshooting techniques?
+
+1. Checking System Logs
+
+Logs Directory: /var/log Eg: To diagnose a system boot issue
+
+tail -f /var/log/syslog  # For Debian-based systems
+tail -f /var/log/messages  # For Red Hat-based systems
+
+2. Monitoring System Performance (Memory, CPU, and Load:)
+
+   top htop ( If the system is slow, use top or htop to identify processes consuming high CPU or memory.)
+
+3. Checking Disk Usage
+
+   df -h  du -sh /path/to/directory ( To find large files or directories causing disk space issues, use df and du.)
+
+4. Diagnosing Network Issues
+
+   ping google.com traceroute google.com netstat -tuln ( Example: If a service is unreachable, use ping to check connectivity and traceroute to understand the path packets take. )
+
+5. Managing System Services:
+
+   systemctl status apache2    (Example: To troubleshoot a web server issue, check the status of the apache2 service.)
+   systemctl restart apache2
+
+6. Analyzing Processes
+
+   ps aux | grep httpd kill -9 <PID> pkill httpd ( If a process is hanging or consuming excessive resources, use ps to find its PID and kill or pkill to terminate it.)
+
+7. Memory Usage
+
+   free -h vmstat 5 5  # Sampling every 5 seconds, 5 times ( Use free to quickly check memory usage and vmstat for detailed memory, CPU, and process statistics.)
+
+8. Boot Issues with GRUB
+
+   grub-install /dev/sda update-grub
+
+
 Clustering in Redis, an in-memory data structure store, is significant for several reasons that relate to performance, scalability, and high availability. Redis Clustering is a way to run a Redis installation where data is automatically partitioned across multiple Redis nodes. Here are the key aspects of clustering in Redis:
 
 1. **Scalability**: Redis Cluster allows the database to be scaled horizontally by adding more nodes to the cluster. This means you can handle larger datasets and more simultaneous connections than a single Redis instance could manage.
